@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# une des solution : echo "$@" | tr " " "\n" | sort | tr "\n" " " && echo ""
+
+printf "%s\n" "$@" | sort | while read line ; do
+    printf "%s " "$line"
+done
+echo

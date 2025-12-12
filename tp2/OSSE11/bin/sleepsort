@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Le temps d'exécution est le temps de l'entier le plus grand
+
+if [ $# -eq 0 ]; then
+    echo "usage: $0 n1 n2 ... nk" >&2
+    exit 1
+fi
+
+for n in "$@"; do
+    # Si on retire {} et ; alors ils vont s'afficher dans l'ordre qu'ils ont été pris dans le processeur
+    { sleep "$n"; echo "$n"; } & 
+done
+
+# Attendre la fin de tous les processus en arrière-plan
+wait
+
+exit 0

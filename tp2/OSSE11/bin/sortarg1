@@ -1,0 +1,18 @@
+#!/bin/sh
+
+rm -f /tmp/1 /tmp/2
+
+if [ $# -eq 0 ] ; then
+    echo "Usage: $0 <s1> <s2>..."
+    exit 1
+fi
+
+for i in "$@" ; do
+    echo $i >> /tmp/1
+done
+sort /tmp/1 > /tmp/2
+
+while read ligne ; do
+    echo -n "$ligne "
+done < /tmp/2
+echo ""

@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# Vérification du nombre d'arguments
+if [ $# -ne 3 ]; then
+    echo "usage: $0 file1 file2 file3" >&2
+    exit 1
+fi
+
+# Fonction pour récupérer le second mot de la première ligne
+second_word() {
+    file="$1"
+    if [ ! -r "$file" ]; then
+        echo "error: '$file' is not readable" >&2
+        exit 3
+    fi
+    # Lire la première ligne et récupérer le second mot
+    read -r _ second _ < "$file"
+    # le premier mot va dans _ (on s’en fiche),
+    # le deuxième mot va dans second (celui qu’on veut),
+    # le reste de la ligne va dans _ (on s’en fiche aussi).
+    echo "$second"
+}
+
+# Construire une liste "second_mot fichier"
+lines=""
+for f in "$@"; do
+    word=$(second_word "$f")
+    lines="$lines$word $f\n"
+done
+
+# Trier par second mot et afficher les fichiers triés
+printf "$lines" | sort | awk '{print $2}' # awk '{print $2}' affiche que le nom du fichier
+
+exit 0

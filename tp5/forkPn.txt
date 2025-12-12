@@ -1,0 +1,9 @@
+Indiquez ce que fait le programme forkPN.
+Il crée deux pipes et deux processus fils qu’on appelera dans la suite filsP et filsN.
+Il lit des entiers sur le flux standard d’entrée :
+— Si l’entier lu est supérieur ou égal à 0, il l’envoie à son filsP via le pipe pos.
+— si l’entier lu est inférieur ou égal à 0, il l’envoie à son filsN via le pipe neg.
+— si l’entier lu est 0, il attend la fin de ses fils avant de se terminer.
+Les fils, quant à eux, lisent des entiers sur leurs pipes respectifs les affichent et se terminent quand
+l’entier lu est 0.
+Le père affiche ses messages sur le flux standard d'erreur et les fils sur le flux standard de sortie. 

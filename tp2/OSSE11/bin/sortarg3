@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ $# -eq 0 ] ; then
+    echo "Usage: $0 <s1> <s2> ..."
+    exit 1
+fi 
+
+while [ $# -ne 0 ]; do
+    min="$1"
+    args=""
+
+    for arg in "$@"; do
+        if [ "$arg" \< "$min" ]; then
+            args="$args $min"
+            min=$arg
+        else
+            args="$args $arg"
+        fi
+    done 
+    echo "$min"
+    set -- $args
+    shift 1 # cours sur pub
+done

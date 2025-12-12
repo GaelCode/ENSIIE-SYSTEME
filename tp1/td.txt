@@ -1,0 +1,21 @@
+gael.oddosmarcel@pc253-18:~/Documents/syex/tp1$ sed -e 's/[^\t]*\t[^\t]*\t\([^\t]*\)/\1/' '/Alice/!d' select.dat
+sed: impossible de lire /Alice/!d: Aucun fichier ou dossier de ce type
+Strasbourg
+Nantes
+Amsterdam
+Berlin
+Paris
+Nice
+gael.oddosmarcel@pc253-18:~/Documents/syex/tp1$ sed -e '/Alice/!d' 's/[^\t]*\t[^\t]*\t\([^\t]*\)/\1/' select.dat
+sed: impossible de lire s/[^\t]*\t[^\t]*\t\([^\t]*\)/\1/: Aucun fichier ou dossier de ce type
+Alice	05/03/1998	Nantes
+Alice	03/01/2013	Nice
+gael.oddosmarcel@pc253-18:~/Documents/syex/tp1$ sed -e '/Alice/!d' 's/[^\t]*\t[^\t]*\t\([^\t]*\)/\1/' select.dat | head -n 1
+sed: impossible de lire s/[^\t]*\t[^\t]*\t\([^\t]*\)/\1/: Aucun fichier ou dossier de ce type
+Alice	05/03/1998	Nantes
+gael.oddosmarcel@pc253-18:~/Documents/syex/tp1$ sed -e '/Alice/!d' -e 's/[^\t]*\t[^\t]*\t\([^\t]*\)/\1/' select.dat | head -n 1
+Nantes
+gael.oddosmarcel@pc253-18:~/Documents/syex/tp1$ sed -e '/Alice/!d' -e 's/[^\t]*\t[^\t]*\t\([^\t]*\)/\1/' -e '\$d' select.dat
+sed: -e expression n°3, caractère 3: expression régulière d'adresse inachevée
+gael.oddosmarcel@pc253-18:~/Documents/syex/tp1$ sed -e '/Alice/!d' -e 's/[^\t]*\t[^\t]*\t\([^\t]*\)/\1/' -e '$!d' select.dat
+Nice

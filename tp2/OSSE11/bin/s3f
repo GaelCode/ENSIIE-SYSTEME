@@ -1,0 +1,22 @@
+#!/bin/bash
+
+. ~/Documents/syex/tp2/OSSE11/bin/s3tool
+
+if [ $# -ne 3 ] ; then
+    echo "Usage: $0 file1 file2 file3"
+    exit 1
+fi
+
+for arg in "$@" ; do
+    if [ -d "$arg" ] ; then
+        echo "$arg is a directory"
+        exit 1
+    fi
+done
+
+
+poids1=$(stat -c %s "$1")
+poids2=$(stat -c %s "$2")
+poids3=$(stat -c %s "$3")
+
+echo "$poids1 $poids2 $poids3"

@@ -1,0 +1,5 @@
+#!/bin/sh
+export IacmpDir=/pub/FISE_OSSE11/shell/iacmp
+export LD_LIBRARY_PATH=/pub/FISE_OSSE11/shell/iacmp/lib
+
+exec /pub/FISE_OSSE11/shell/iacmp/iacmp "$@"
