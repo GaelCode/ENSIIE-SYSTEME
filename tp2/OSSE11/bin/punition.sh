@@ -5,7 +5,7 @@
 if [ $# -eq 0 ] ; then
     n=10
     m=3
-    word="COCHONNE VA !"
+    word="Defaut"
 elif [ $# -eq 1 ] ; then
     n=10
     m=3

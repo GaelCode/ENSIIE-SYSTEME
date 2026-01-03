@@ -12,7 +12,7 @@ word="$2"
 
 i=0
 while [ $i -lt "$n" ] ; do
-    echo "$word "
+    echo -n "$word "
     i=$((i+1))
 done
 
