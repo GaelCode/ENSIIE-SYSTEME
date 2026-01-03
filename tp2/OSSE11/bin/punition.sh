@@ -22,5 +22,5 @@ else
     echo "usage $0 <n ou vide> <m ou vide> <word ou vide>"
 fi
 
-sh punition3.sh "$n" "$m" "$word"
+sh ./punition3.sh "$n" "$m" "$word"
 
